@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %}My Locations{% endblock %}
+
+
+{% block content %}
+
+	<h1>My Locations</h1>
+
+	{% for loc in locations %}
+	  <div class="location-card">
+	  	<div class="content">
+		  	<h1 class="temperature">{{loc.temperature}}&deg;</h1>
+		  	<h2 class="location-title">{{loc.name}}</h2>
+		  	<p class="details">Summary: {{loc.summary}}</p>
+		  	<p class="details">Feels like: {{loc.apparentTemperature}}&deg;</p>
+	  	</div>
+	  	<div class="card-footer">
+	  		<a href="/weather_in_saved_location?location_name={{loc.name}}&location_longtitude={{loc.longtitude}}&location_latitude={{loc.latitude}}">details</a>
+	  		<a class="delete" href="/delete_location?location_name={{loc.name}}&location_longtitude={{loc.longtitude}}&location_latitude={{loc.latitude}}">delete</a>
+	  	</div>
+	  </div>
+	{% endfor %}
+
+	{% if !locations.length %}
+		<p>You don't have any locations saved.</p>
+	{% endif %}
+
+{% endblock %}

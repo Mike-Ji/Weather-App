@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+
+	<h1>Home</h1>
+
+	<form class="weather-search" action="/weather_in_location" method="GET">
+		<input type="text" name="location_search_term" placeholder="Enter location"/>
+		<input type="submit" value="Search">
+	</form>
+
+{% endblock %}
