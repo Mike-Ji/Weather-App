@@ -1,0 +1,1 @@
+A weather app to send subscribers weather information through e-mail or text message.
